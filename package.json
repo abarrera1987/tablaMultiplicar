@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/abarrera1987/tablaMultiplicar/issues"
   },
-  "homepage": "https://github.com/abarrera1987/tablaMultiplicar#readme"
+  "homepage": "https://github.com/abarrera1987/tablaMultiplicar#readme",
+  "dependencies": {
+    "yargs": "^13.2.1"
+  }
 }
