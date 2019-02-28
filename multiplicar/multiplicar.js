@@ -1,8 +1,34 @@
 const fs = require('fs');
+const colors = require('colors');
+listarTabla = (base, limite = 10) => {
 
-// console.log(process);
+    return new Promise((resolve, reject) => {
 
-nuevaTabla = (base) => {
+        if (!Number(base)) {
+
+            reject(`El valor: ${base} no es un número`);
+
+        }
+
+        let tabla = "";
+
+        console.log('============================================='.green);
+        console.log('============Tabla de Multiplicar============='.green);
+        console.log(`================== No ${base} =====================`.green);
+
+        for (let i = 1; i <= limite; i++) {
+
+            tabla += `${base} * ${i} = ${base*i}\n`.red;
+
+        }
+
+        resolve(tabla);
+
+    })
+
+}
+
+nuevaTabla = (base, limite = 10) => {
 
     return new Promise((resolve, reject) => {
 
@@ -12,9 +38,15 @@ nuevaTabla = (base) => {
             return;
         }
 
+        if (!Number(limite)) {
+
+            reject(`${limite} No es un numero`);
+            return;
+        }
+
         let table = "";
 
-        for (let i = 1; i <= 10; i++) {
+        for (let i = 1; i <= limite; i++) {
 
             table += `${base} * ${i} = ${base * i}\n`;
 
@@ -24,7 +56,7 @@ nuevaTabla = (base) => {
             if (err)
                 reject(err)
             else
-                resolve(`tabla-${base}.txt`)
+                resolve(colors.magenta(`tabla-${base}.txt`))
 
         });
 
@@ -34,6 +66,7 @@ nuevaTabla = (base) => {
 
 module.exports = {
 
-    nuevaTabla
+    nuevaTabla,
+    listarTabla
 
 }
